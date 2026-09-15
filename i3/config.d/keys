@@ -1,0 +1,170 @@
+#----------------------------WORKSPACES--------------------------
+
+bindsym Ctrl+o workspace next
+bindsym Mod1+Tab workspace next
+bindsym Ctrl+i workspace prev
+bindsym Mod1+Shift+Tab workspace prev
+
+#------------------------------BYND------------------------------
+
+#polybar
+bindsym $mod+p exec polybar
+bindsym $mod+Shift+p exec pkill polybar
+
+# waypaper
+bindsym $mod+w exec waypaper
+bindsym $mod+Shift+w exec waypaper --random
+
+# dmenu
+bindsym $mod+a exec rofi -show drun 
+bindsym $mod+d exec ~/.config/rofi/scripts/menu.sh 
+
+# browser
+bindsym $mod+b exec chromium 
+bindsym $mod+Shift+b exec firefox
+
+# i3lock_dolphin_scrot
+bindsym $mod+Shift+l exec i3lock -e -c 000000
+bindsym $mod+e exec dolphin
+bindsym $mod+Shift+s exec scrot -s
+
+#xkill
+bindsym $mod+Shift+x exec xkill 
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym lF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+#xbacklight
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+
+# kill focused window
+bindsym Ctrl+Shift+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+z floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# We use variables to avoid repeating the names in multiple places.
+# Фиксированные рабочие столы
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Переключение на рабочие столы
+bindsym Mod1+1 workspace $ws1
+bindsym Mod1+2 workspace $ws2
+bindsym Mod1+3 workspace $ws3
+bindsym Mod1+4 workspace $ws4
+bindsym Mod1+5 workspace $ws5
+bindsym Mod1+6 workspace $ws6
+bindsym Mod1+7 workspace $ws7
+bindsym Mod1+8 workspace $ws8
+bindsym Mod1+9 workspace $ws9
+bindsym Mod1+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym l resize shrink width 3 px or 3 ppt
+    bindsym k resize grow height 3 px or 3 ppt
+    bindsym j resize shrink height 3 px or 3 ppt
+    bindsym h resize grow width 3 px or 3 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym $mod+r mode "default"
+    bindsym Escape mode "default"
+}
+
+#----------------------------PLAYERCTL---------------------------
+
+mode "player" {
+    bindsym h exec playerctl previous
+    bindsym l exec playerctl next
+    bindsym j exec playerctl play-pause
+
+    bindsym o exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+    bindsym i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+
+    bindsym Ctrl+p mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+bindsym Ctrl+p mode "player"
+

@@ -1,0 +1,32 @@
+# i3 config file (v4)
+include "~/.config/i3/config.d/monitors"
+include "~/.config/i3/config.d/autostart"
+include "~/.config/i3/config.d/keyboard"
+include "~/.config/i3/config.d/keys"
+include "~/.config/i3/config.d/wallpaper"
+
+set $mod Mod4
+
+font pango:JetBrainMono-Regular 12
+
+# tiling_setting
+gaps inner 2
+gaps outer 0
+smart_gaps off
+default_border pixel 2
+default_floating_border pixel 0
+hide_edge_borders none
+
+# class                 border  background text    indicator child_border
+client.focused          #000000 #900000    #ffffff #786bb3   #786bb3 
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+for_window [class="Waypaper"] floating enable 
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+tiling_drag modifier titlebar
