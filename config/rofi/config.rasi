@@ -1,0 +1,24 @@
+
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+
+//@theme "/home/puser/.local/share/rofi/themes/cute.rasi"
+
+
+configuration {
+    /* Включаем нужные режимы */
+    modes: [ drun, window ];
+    lines: 25;
+    fixed-num-lines: true;
+    /* Настраиваем отображение названий вкладок */
+    display-drun: "$";
+    display-window: "Windows";
+}
+
+
+//@theme "/usr/share/rofi/themes/material.rasi"
+
+//@theme "/home/puser/.local/share/rofi/themes/cute.rasi"
+
+//@theme "/home/puser/.local/share/rofi/themes/miggy.rasi"
+
+@theme "/home/puser/.local/share/rofi/themes/cute.rasi"
