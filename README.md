@@ -3,8 +3,12 @@
 ![.dotfiles](https://github.com/sad-unixoid/i3-cute-dotfiles/blob/main/image/2026-09-18-003602_1920x1080_scrot.png)
 
 # Instalation
-
+```
 git clone https://github.com/sad-unixoid/i3-cute-dotfiles.git
+cd i3-cute-dotfiles
+sudo chmod +x install-dotfiles.sh
+./install-dotfiles.sh
+```
 
 # Shortcuts:
 
