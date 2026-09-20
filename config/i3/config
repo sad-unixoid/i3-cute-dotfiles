@@ -10,8 +10,9 @@ set $mod Mod4
 font pango:JetBrainMono-Regular 12
 
 # tiling_setting
-gaps inner 2
-gaps outer 0
+gaps inner 5
+gaps outer 5
+gaps top 34
 smart_gaps off
 default_border pixel 2
 default_floating_border pixel 0
