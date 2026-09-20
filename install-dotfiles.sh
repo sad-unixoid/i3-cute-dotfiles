@@ -1,34 +1,36 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 REPO_URL="https://github.com/sad-unixoid/dotfiles.git"
 BRANCH="main"
 DIR="$HOME/dotfiles"
 CLONE_DIR="$HOME/.config"
-PACKAGE=("i3" "xorg-server" "xorg-xrandr" "xorg-xev" "playerctl" "pavucontrol" "picom" "kitty" "feh") 
-PACKAGE_MANAGERS=("apt" "yum" "dnf" "pacman")
 
-for manager in "${PACKAGE_MANAGERS[@]}"; do
-    if command -v "$manager" > /dev/null 2>&1; then
-        echo "- $manager"
-        if [ "$manager" = "pacman" ]; then
-            sudo pacman -S "${PACKAGE[@]}" 
-            break
-        elif [ "$manager" = "apt" ]; then
-            sudo apt install "${PACKAGE[@]}"
-            break
-        elif [ "$manager" = "dnf" ]; then
-            sudo dnf install "${PACKAGE[@]}" 
-            break
-        elif [ "$manager" = "yum" ]; then
-            sudo yum install "${PACKAGE[@]}" 
-            break
-        fi
-    fi
-done
+set -euo pipefail
 
-git clone $REPO_URL
+list="${1:-packages.txt}"
+
+if [[ ! -f "$list" ]]; then
+    echo "Файл не найден: $list" >&2
+    exit 1
+fi
+
+mapfile -t packages < <(
+    sed -e 's/#.*//' -e 's/[[:space:]]//g' "$list" | grep -v '^$'
+)
+
+if [[ ${#packages[@]} -eq 0 ]]; then
+    echo "Список пуст." >&2
+    exit 0
+fi
+
+echo "Ставлю ${#packages[@]} пакетов..."
+sudo pacman -S --needed "${packages[@]}"
 
 # backup 
 
-mkdir "BACKUP_FILES"
-cp -r ~/.config/i3/* ~/.config/kitty/* ~/.config/picom/* ~/.config/polybar/* "BACKUP_FILES"
+mkdir -p ~/backup-dotfiles
+cp -r ~/.config/i3/* ~/.config/kitty/* ~/.config/picom/* ~/.config/polybar/* ~/.config/rofi/* ~/backup-dotfiles
+
+cp -r config/* ~/Documents
+
+
