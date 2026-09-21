@@ -1,5 +1,6 @@
 # i3-cute-dotfiles
 
+![.dotfiles](https://github.com/sad-unixoid/i3-cute-dotfiles/blob/main/image/2026-09-21-222609_1920x1080_scrot.png)
 ![.dotfiles](https://github.com/sad-unixoid/i3-cute-dotfiles/blob/main/image/2026-09-18-003602_1920x1080_scrot.png)
 
 # Instalation
@@ -14,14 +15,16 @@ sudo chmod +x install-dotfiles.sh
 
 | Key                                | Purpose                                                                             |
 | ---                                | -------                                                                             |
-| $mod + (1-9,0)                     | Switch to workspaces with number 1-10                                               |
+| Alt + (1-9,0)                      | Switch to workspaces with number 1-10                                               |
+| Alt + Tab                          | Switch to workspaces                                               |
+| Ctrl + i,o                         | Switch to workspaces                                                                |
 | $mod + Shift + (1-9,0)             | Move the container to the workspaces with number 1-10                               |
 | $mod + h (j, k, l)                 | focus left (down, up, right) window                                                 |
 | $mod + Shift + h (j, k, l)         | move focused window left (down, up, right)                                          |
 | $mod + Return                      | terminal                                                                            |
 | $mod + Shift + r                   | Restart I3 inplace                                                                  |
 | $mod + r                           | Activate resize mode                                                                |
-| $mod + space                       | Change focus between tiling and floating windows                                    |
+| $mod + z                       | Change focus between tiling and floating windows                                    |
 | $mod + Shift + space               | Toggle floating status of the focused container                                     |
 | $mod + a                           | Focus parent container                                                              |
 | $mod + d                           | Focus child container                                                               |
