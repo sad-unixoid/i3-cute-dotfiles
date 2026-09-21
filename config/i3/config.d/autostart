@@ -1,4 +1,8 @@
 exec --no-startup-id dex --autostart --environment i3
-#exec --no-startup-id picom
-exec --no-startup-id polybar
+exec --no-startup-id picom
+exec --no-startup-id ~/.config/polybar/scripts/launch.sh
+exec_always ~/.config/polybar/scripts/mode.sh
 exec --no-startup-id nm-applet
+exec_always xset s off
+exec_always xset -dpms
+exec kitty

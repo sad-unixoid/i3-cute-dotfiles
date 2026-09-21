@@ -19,7 +19,7 @@ default_floating_border pixel 0
 hide_edge_borders none
 
 # class                 border  background text    indicator child_border
-client.focused          #000000 #900000    #ffffff #786bb3   #786bb3 
+client.focused          #000000 #900000    #ffffff #bfbfbf   #bfbfbf 
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
