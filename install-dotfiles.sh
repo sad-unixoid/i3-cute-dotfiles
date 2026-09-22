@@ -29,8 +29,8 @@ sudo pacman -S --needed "${packages[@]}"
 # backup 
 
 mkdir -p ~/backup-dotfiles
-cp -r ~/.config/i3/* ~/.config/kitty/* ~/.config/picom/* ~/.config/polybar/* ~/.config/rofi/* ~/backup-dotfiles
+cp -r ~/.config/i3/* ~/.config/kitty/* ~/.config/picom/* ~/.config/polybar/* ~/.config/rofi/* ~/.config/neofetch/* ~/backup-dotfiles
 
-cp -r config/* ~/Documents
+cp -r config/* ~/.config/
 
 

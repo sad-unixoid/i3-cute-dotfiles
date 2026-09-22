@@ -5,12 +5,10 @@
 "  \ \____\\ \_____\ \ \_\  \ \____\    \ \____/ \ \_\ \_\ \_\ \_\
 "   \_____/ \/_____/  \/_/   \/____/     \/___/   \/_/\/_/\/_/\/_/
 "
-    
-set termguicolors
+
+colorscheme 256_noir
 
 let ayucolor="dark"
-
-colorscheme catppuccin 
 
 augroup TransparentBg
   autocmd!
@@ -119,7 +117,7 @@ set clipboard=unnamedplus
 " ======================plug setting==========================
 " ============================================================
 
-let g:airline_theme='base16_atelier_forest'
+let g:airline_theme='base16_ashes'
 let g:ale_cpp_clang_tidy_options = '-checks=*'
 let g:ale_cpp_gcc_options = '-std=c++17 -Wall -Wextra -Werror'
 
@@ -164,19 +162,13 @@ inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 
 "inoremap (INPUT MODE)"
-"inoremap (( ()<left><Enter><Esc>O
-"inoremap ({ ()<Space>{}<Left><Enter><Esc>O
-"inoremap #I #include<Space><><Left>
-"inoremap {{ {}<left><Enter><Esc>O
-"inoremap [[ []<Left>
+inoremap ({ ()<Space>{}<Left><Enter><Esc>O
+inoremap #I #include<Space><><Left>
+inoremap {{ {}<left><Enter><Esc>O
+inoremap [[ []<Left>
 xnoremap p "_dP 
 
 "nnoremap (NORMAL MODE)"
-nnoremap <c-h> b
-nnoremap <c-l> w
-nnoremap <c-k> k
-nnoremap <c-j> j
-
 nnoremap cd diwi
 nnoremap ca vbdi
 
@@ -188,11 +180,6 @@ nnoremap <Space> :noh<CR>
 
 nnoremap <C-F2> :e ~/.vimrc<CR>
 nnoremap <C-F3> :e ~/.config/i3/config
-nnoremap <c-F4> :e ~/.config/hypr/hyprland.conf<cr>
-nnoremap <c-F5> :colorscheme sorbet<CR>
-nnoremap <c-F6> :colorscheme ayu<CR>
-nnoremap <c-F7> :colorscheme pink-moon<CR>
-nnoremap <c-F8> :colorscheme zaibatsu<CR>
 
 nnoremap <c-f> :ClangFormat<CR>
 

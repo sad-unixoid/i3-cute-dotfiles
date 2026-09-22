@@ -35,3 +35,6 @@ noto-fonts
 noto-fonts-emoji
 ttf-font-awesome
 ttf-nerd-fonts-symbols
+
+# Other
+vim
